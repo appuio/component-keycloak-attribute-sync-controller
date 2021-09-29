@@ -1,0 +1,7 @@
+:global:
+  componentName: Keycloak Attribute Sync Controller
+  githubUrl: https://github.com/appuio/component-keycloak-attribute-sync-controller
+
+docs/antora.yml:
+  name: keycloak-attribute-sync-controller
+  title: Keycloak Attribute Sync Controller
