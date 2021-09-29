@@ -11,9 +11,18 @@ default:: `syn-keycloak-attribute-sync-controller`
 The namespace in which to deploy this component.
 
 
-== Example
+== `images`
 
+[horizontal]
+type:: dictionary
+default::
++
 [source,yaml]
 ----
-namespace: example-namespace
+controller:
+  registry: quay.io
+  repository: appuio/keycloak-attribute-sync-controller
+  version: ...
 ----
+
+Dictionary containing the container images used by this component.
