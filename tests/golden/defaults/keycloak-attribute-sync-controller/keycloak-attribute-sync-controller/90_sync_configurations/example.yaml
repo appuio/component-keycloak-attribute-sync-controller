@@ -6,8 +6,8 @@ kind: Secret
 metadata:
   annotations: {}
   labels:
-    name: example-secret
-  name: example-secret
+    name: example-credentials
+  name: example-credentials
   namespace: syn-keycloak-attribute-sync-controller
 type: Opaque
 ---
@@ -22,7 +22,7 @@ metadata:
 spec:
   attribute: example.com/special-attribute
   credentialsSecret:
-    name: example-secret
+    name: example-credentials
   loginRealm: master
   realm: example
   schedule: '@every 5m'

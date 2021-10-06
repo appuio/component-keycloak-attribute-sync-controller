@@ -2,8 +2,8 @@ parameters:
   kapitan:
     dependencies:
       - type: https
-        source: ${keycloak_attribute_sync_controller:manifest_url}/crd/bases/keycloak.appuio.ch_attributesyncs.yaml
-        output_path: dependencies/keycloak-attribute-sync-controller/manifests/crds/${keycloak_attribute_sync_controller:manifest_version}/keycloak.appuio.ch_attributesyncs.yaml
+        source: ${keycloak_attribute_sync_controller:manifest_url}/crd/bases/keycloak.appuio.io_attributesyncs.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/crds/${keycloak_attribute_sync_controller:manifest_version}/keycloak.appuio.io_attributesyncs.yaml
 
       - type: https
         source: ${keycloak_attribute_sync_controller:manifest_url}/manager/manager.yaml
