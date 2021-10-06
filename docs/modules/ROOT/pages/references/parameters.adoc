@@ -26,3 +26,93 @@ controller:
 ----
 
 Dictionary containing the container images used by this component.
+
+
+== `sync_configurations`
+
+[horizontal]
+type:: dictionary
+default:: `{}`
+example::
++
+[source,yaml]
+----
+sync_configurations:
+  example:
+    url: https://keycloak.example.com/
+    loginRealm: master
+    username: sync-user
+    password: sync-user
+    realm: example
+    attribute: example.com/special-attribute
+    targetAnnotation: example.com/special-attribute
+    schedule: "@every 5m"
+----
+
+A key-value map defining multiple `AttributeSync`.
+Each entry will generate a `AttributeSync` with the key as its name.
+
+=== `sync_configurations[name].url`
+
+[horizontal]
+type:: dictionary
+example:: `https://keycloak.example.com/`
+
+The location of the Keycloak server.
+
+=== `sync_configurations[name].loginRealm`
+
+[horizontal]
+type:: string
+example:: `master`
+
+The Keycloak realm to authenticate against.
+
+=== `sync_configurations[name].username`
+
+[horizontal]
+type:: string
+example:: `sync-user`
+
+The username used to authenticate against Keycloak.
+Stored in a secret with name `{{name}}-credentials`.
+
+=== `sync_configurations[name].password`
+
+[horizontal]
+type:: string
+
+The password used to authenticate against Keycloak.
+Stored in a secret with name `{{name}}-credentials`.
+
+=== `sync_configurations[name].realm`
+
+[horizontal]
+type:: string
+example:: `openshift-users`
+
+The realm containing the users to synchronize against.
+
+=== `sync_configurations[name].attribute`
+
+[horizontal]
+type:: string
+example:: `example.com/special-attribute`
+
+The attribute to sync.
+
+=== `sync_configurations[name].targetLabel`
+
+[horizontal]
+type:: string
+example:: `example.com/special-attribute`
+
+The label to sync the attribute to.
+
+=== `sync_configurations[name].targetAnnotation`
+
+[horizontal]
+type:: string
+example:: `example.com/special-attribute`
+
+The annotation to sync the attribute to.

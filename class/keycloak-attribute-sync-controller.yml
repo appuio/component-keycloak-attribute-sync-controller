@@ -31,3 +31,7 @@ parameters:
           - keycloak-attribute-sync-controller/component/main.jsonnet
         input_type: jsonnet
         output_path: keycloak-attribute-sync-controller/
+      - input_paths:
+          - keycloak-attribute-sync-controller/component/config.jsonnet
+        input_type: jsonnet
+        output_path: keycloak-attribute-sync-controller/90_sync_configurations/

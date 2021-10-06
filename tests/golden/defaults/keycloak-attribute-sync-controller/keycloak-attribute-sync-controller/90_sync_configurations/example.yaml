@@ -1,0 +1,30 @@
+apiVersion: v1
+data:
+  password: c3luYy11c2Vy
+  username: c3luYy11c2Vy
+kind: Secret
+metadata:
+  annotations: {}
+  labels:
+    name: example-secret
+  name: example-secret
+  namespace: syn-keycloak-attribute-sync-controller
+type: Opaque
+---
+apiVersion: keycloak.appuio.io/v1alpha1
+kind: AttributeSync
+metadata:
+  annotations: {}
+  labels:
+    name: example
+  name: example
+  namespace: syn-keycloak-attribute-sync-controller
+spec:
+  attribute: example.com/special-attribute
+  credentialsSecret:
+    name: example-secret
+  loginRealm: master
+  realm: example
+  schedule: '@every 5m'
+  targetAnnotation: example.com/special-attribute
+  url: https://keycloak.example.com/
