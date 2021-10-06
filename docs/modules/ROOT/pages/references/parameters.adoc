@@ -22,7 +22,7 @@ default::
 controller:
   registry: quay.io
   repository: appuio/keycloak-attribute-sync-controller
-  version: ...
+  tag: ...
 ----
 
 Dictionary containing the container images used by this component.

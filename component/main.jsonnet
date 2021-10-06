@@ -12,7 +12,7 @@ local service_account = std.parseJson(kap.yaml_load('keycloak-attribute-sync-con
 local role_binding = std.parseJson(kap.yaml_load('keycloak-attribute-sync-controller/manifests/controller/' + params.manifest_version + '/role_binding.yaml'));
 local deployment = std.parseJson(kap.yaml_load('keycloak-attribute-sync-controller/manifests/controller/' + params.manifest_version + '/deployment.yaml'));
 
-local image = '%s/%s:%s' % [ params.images.controller.registry, params.images.controller.repository, params.images.controller.version ];
+local image = '%(registry)s/%(repository)s:%(tag)s' % params.images.controller;
 
 local objects = [
   role {
