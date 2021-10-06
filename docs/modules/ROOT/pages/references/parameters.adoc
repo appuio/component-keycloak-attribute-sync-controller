@@ -77,6 +77,11 @@ example:: `sync-user`
 The username used to authenticate against Keycloak.
 Stored in a secret with name `{{name}}-credentials`.
 
+The following permissions must be associated to the user:
+
+- Password must be set (Temporary option unselected) on the _Credentials_ tab.
+- On the _Role Mappings_ tab, select _master-realm_ or _realm-management_ next to the _Client Roles_ dropdown and then select *query-users* and *view-users*.
+
 === `sync_configurations[name].password`
 
 [horizontal]
