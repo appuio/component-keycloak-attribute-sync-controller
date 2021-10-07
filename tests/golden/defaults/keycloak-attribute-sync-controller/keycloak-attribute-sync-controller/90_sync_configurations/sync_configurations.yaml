@@ -1,28 +1,18 @@
-apiVersion: v1
-data:
-  password: c3luYy11c2Vy
-  username: c3luYy11c2Vy
-kind: Secret
-metadata:
-  annotations: {}
-  labels:
-    name: example-credentials
-  name: example-credentials
-  namespace: syn-keycloak-attribute-sync-controller
-type: Opaque
----
 apiVersion: keycloak.appuio.io/v1alpha1
 kind: AttributeSync
 metadata:
   annotations: {}
   labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: keycloak-attribute-sync-controller
+    app.kubernetes.io/part-of: syn
     name: example
   name: example
   namespace: syn-keycloak-attribute-sync-controller
 spec:
   attribute: example.com/special-attribute
   credentialsSecret:
-    name: example-credentials
+    name: example-secret
   loginRealm: master
   realm: example
   schedule: '@every 5m'

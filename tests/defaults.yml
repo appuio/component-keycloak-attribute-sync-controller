@@ -4,11 +4,17 @@ parameters:
   keycloak_attribute_sync_controller:
     sync_configurations:
       example:
+        credentialsSecret:
+          name: example-secret
         url: https://keycloak.example.com/
         loginRealm: master
-        username: sync-user
-        password: sync-user
         realm: example
         attribute: example.com/special-attribute
         targetAnnotation: example.com/special-attribute
         schedule: "@every 5m"
+
+    sync_credentials:
+      example-secret:
+        stringData:
+          username: sync-user
+          password: sync-user
