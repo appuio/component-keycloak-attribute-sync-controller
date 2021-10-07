@@ -1,11 +1,37 @@
 parameters:
   kapitan:
+    dependencies:
+      - type: https
+        source: ${keycloak_attribute_sync_controller:manifest_url}/crd/bases/keycloak.appuio.io_attributesyncs.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/crds/${keycloak_attribute_sync_controller:manifest_version}/keycloak.appuio.io_attributesyncs.yaml
+
+      - type: https
+        source: ${keycloak_attribute_sync_controller:manifest_url}/manager/manager.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/controller/${keycloak_attribute_sync_controller:manifest_version}/deployment.yaml
+      - type: https
+        source: ${keycloak_attribute_sync_controller:manifest_url}/rbac/role.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/controller/${keycloak_attribute_sync_controller:manifest_version}/role.yaml
+      - type: https
+        source: ${keycloak_attribute_sync_controller:manifest_url}/rbac/role_binding.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/controller/${keycloak_attribute_sync_controller:manifest_version}/role_binding.yaml
+      - type: https
+        source: ${keycloak_attribute_sync_controller:manifest_url}/rbac/service_account.yaml
+        output_path: dependencies/keycloak-attribute-sync-controller/manifests/controller/${keycloak_attribute_sync_controller:manifest_version}/service_account.yaml
+
     compile:
       - input_paths:
           - keycloak-attribute-sync-controller/component/app.jsonnet
         input_type: jsonnet
         output_path: apps/
       - input_paths:
+          - keycloak-attribute-sync-controller/manifests/crds/${keycloak_attribute_sync_controller:manifest_version}/
+        input_type: copy
+        output_path: keycloak-attribute-sync-controller/00_crds/
+      - input_paths:
           - keycloak-attribute-sync-controller/component/main.jsonnet
         input_type: jsonnet
         output_path: keycloak-attribute-sync-controller/
+      - input_paths:
+          - keycloak-attribute-sync-controller/component/config.jsonnet
+        input_type: jsonnet
+        output_path: keycloak-attribute-sync-controller/90_sync_configurations/

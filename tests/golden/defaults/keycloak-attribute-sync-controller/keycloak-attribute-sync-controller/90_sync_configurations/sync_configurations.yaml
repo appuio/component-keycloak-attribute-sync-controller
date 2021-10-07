@@ -1,0 +1,20 @@
+apiVersion: keycloak.appuio.io/v1alpha1
+kind: AttributeSync
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: keycloak-attribute-sync-controller
+    app.kubernetes.io/part-of: syn
+    name: example
+  name: example
+  namespace: syn-keycloak-attribute-sync-controller
+spec:
+  attribute: example.com/special-attribute
+  credentialsSecret:
+    name: example-secret
+  loginRealm: master
+  realm: example
+  schedule: '@every 5m'
+  targetAnnotation: example.com/special-attribute
+  url: https://keycloak.example.com/

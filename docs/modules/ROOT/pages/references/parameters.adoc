@@ -11,9 +11,70 @@ default:: `syn-keycloak-attribute-sync-controller`
 The namespace in which to deploy this component.
 
 
-== Example
+== `images`
 
+[horizontal]
+type:: dictionary
+default::
++
 [source,yaml]
 ----
-namespace: example-namespace
+controller:
+  registry: quay.io
+  repository: appuio/keycloak-attribute-sync-controller
+  tag: ...
 ----
+
+Dictionary containing the container images used by this component.
+
+
+== `sync_credentials`
+
+[horizontal]
+type:: dictionary
+default:: `{}`
+example::
++
+[source,yaml]
+----
+sync_credentials:
+  example-credentials:
+    stringData:
+      username: sync-user
+      password: ...
+  example-certificate:
+    stringData:
+      ca.crt: |
+        -----BEGIN CERTIFICATE-----
+        ...
+----
+
+A key-value map defining multiple `Secret` for referencing in `sync_configurations`.
+Each entry will generate a `Secret` with the key as its name.
+
+
+== `sync_configurations`
+
+[horizontal]
+type:: dictionary
+default:: `{}`
+example::
++
+[source,yaml]
+----
+sync_configurations:
+  example:
+    url: https://keycloak.example.com/
+    loginRealm: master
+    username: sync-user
+    password: sync-user
+    realm: example
+    attribute: example.com/special-attribute
+    targetAnnotation: example.com/special-attribute
+    schedule: "@every 5m"
+----
+
+A key-value map defining multiple `AttributeSync`.
+Each entry will generate a `AttributeSync` with the key as its name.
+
+Possible parameters are documented https://github.com/appuio/keycloak-attribute-sync-controller#usage[here].
