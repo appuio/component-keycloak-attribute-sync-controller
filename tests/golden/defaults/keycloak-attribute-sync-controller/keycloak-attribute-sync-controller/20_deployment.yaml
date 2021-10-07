@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: keycloak-attribute-sync-controller
+    app.kubernetes.io/part-of: syn
     control-plane: controller-manager
   name: keycloak-attribute-sync-controller-manager
   namespace: syn-keycloak-attribute-sync-controller

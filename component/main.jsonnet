@@ -1,4 +1,5 @@
 // main template for keycloak-attribute-sync-controller
+local common = import 'common.libsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
 local kube = import 'lib/kube.libjsonnet';
 local inv = kap.inventory();
@@ -66,7 +67,7 @@ local objects = [
 }
 +
 {
-  ['20_' + std.asciiLower(obj.kind)]: obj {
+  ['20_' + std.asciiLower(obj.kind)]: common.AddCommonLabels(obj) {
     metadata+: {
       namespace: params.namespace,
     },
