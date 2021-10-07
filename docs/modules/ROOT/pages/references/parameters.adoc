@@ -28,6 +28,31 @@ controller:
 Dictionary containing the container images used by this component.
 
 
+== `sync_credentials`
+
+[horizontal]
+type:: dictionary
+default:: `{}`
+example::
++
+[source,yaml]
+----
+sync_credentials:
+  example-credentials:
+    stringData:
+      username: sync-user
+      password: ...
+  example-certificate:
+    stringData:
+      ca.crt: |
+        -----BEGIN CERTIFICATE-----
+        ...
+----
+
+A key-value map defining multiple `Secret` for referencing in `sync_configurations`.
+Each entry will generate a `Secret` with the key as its name.
+
+
 == `sync_configurations`
 
 [horizontal]
@@ -52,72 +77,4 @@ sync_configurations:
 A key-value map defining multiple `AttributeSync`.
 Each entry will generate a `AttributeSync` with the key as its name.
 
-=== `sync_configurations[name].url`
-
-[horizontal]
-type:: dictionary
-example:: `https://keycloak.example.com/`
-
-The location of the Keycloak server.
-
-=== `sync_configurations[name].loginRealm`
-
-[horizontal]
-type:: string
-example:: `master`
-
-The Keycloak realm to authenticate against.
-
-=== `sync_configurations[name].username`
-
-[horizontal]
-type:: string
-example:: `sync-user`
-
-The username used to authenticate against Keycloak.
-Stored in a secret with name `{{name}}-credentials`.
-
-The following permissions must be associated to the user:
-
-- Password must be set (Temporary option unselected) on the _Credentials_ tab.
-- On the _Role Mappings_ tab, select _master-realm_ or _realm-management_ next to the _Client Roles_ dropdown and then select *query-users* and *view-users*.
-
-=== `sync_configurations[name].password`
-
-[horizontal]
-type:: string
-
-The password used to authenticate against Keycloak.
-Stored in a secret with name `{{name}}-credentials`.
-
-=== `sync_configurations[name].realm`
-
-[horizontal]
-type:: string
-example:: `openshift-users`
-
-The realm containing the users to synchronize against.
-
-=== `sync_configurations[name].attribute`
-
-[horizontal]
-type:: string
-example:: `example.com/special-attribute`
-
-The attribute to sync.
-
-=== `sync_configurations[name].targetLabel`
-
-[horizontal]
-type:: string
-example:: `example.com/special-attribute`
-
-The label to sync the attribute to.
-
-=== `sync_configurations[name].targetAnnotation`
-
-[horizontal]
-type:: string
-example:: `example.com/special-attribute`
-
-The annotation to sync the attribute to.
+Possible parameters are documented https://github.com/appuio/keycloak-attribute-sync-controller#usage[here].

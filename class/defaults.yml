@@ -10,4 +10,5 @@ parameters:
     manifest_version: ${keycloak_attribute_sync_controller:images:controller:tag}
     manifest_url: https://raw.githubusercontent.com/appuio/keycloak-attribute-sync-controller/${keycloak_attribute_sync_controller:manifest_version}/config
 
+    sync_credentials: {}
     sync_configurations: {}
