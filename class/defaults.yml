@@ -5,7 +5,7 @@ parameters:
       controller:
         registry: quay.io
         repository: appuio/keycloak-attribute-sync-controller
-        tag: v0.1.1
+        tag: v0.1.2
 
     manifest_version: ${keycloak_attribute_sync_controller:images:controller:tag}
     manifest_url: https://raw.githubusercontent.com/appuio/keycloak-attribute-sync-controller/${keycloak_attribute_sync_controller:manifest_version}/config
