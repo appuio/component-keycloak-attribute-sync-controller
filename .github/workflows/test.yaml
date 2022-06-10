@@ -5,7 +5,7 @@ on:
       - master
 
 env:
-  COMPONENT_NAME: keycloak-attribute-sync-controller
+  COMPONENT_NAME: Keycloak Attribute Sync Controller
 
 jobs:
   linting:
