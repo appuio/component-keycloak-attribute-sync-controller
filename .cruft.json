@@ -1,0 +1,21 @@
+{
+  "template": "https://github.com/projectsyn/commodore-component-template.git",
+  "commit": "e6c4fd69190db1ad12e941d578b9423d0e2f993c",
+  "checkout": "main",
+  "context": {
+    "cookiecutter": {
+      "name": "Keycloak Attribute Sync Controller",
+      "slug": "keycloak-attribute-sync-controller",
+      "parameter_key": "keycloak_attribute_sync_controller",
+      "test_cases": "defaults",
+      "add_golden": "y",
+      "add_matrix": "n",
+      "add_go_unit": "n",
+      "github_owner": "appuio",
+      "github_name": "component-keycloak-attribute-sync-controller",
+      "github_url": "https://github.com/appuio/component-keycloak-attribute-sync-controller",
+      "_template": "https://github.com/projectsyn/commodore-component-template.git"
+    }
+  },
+  "directory": null
+}
