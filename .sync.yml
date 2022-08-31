@@ -1,4 +1,0 @@
-:global:
-  componentName: Keycloak Attribute Sync Controller
-  githubUrl: https://github.com/appuio/component-keycloak-attribute-sync-controller
-  feature_goldenTests: true
