@@ -1,5 +1,6 @@
 // main template for keycloak-attribute-sync-controller
 local common = import 'common.libsonnet';
+local com = import 'lib/commodore.libjsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
 local kube = import 'lib/kube.libjsonnet';
 local inv = kap.inventory();
@@ -51,6 +52,7 @@ local objects = [
               c {
                 image: image,
                 args: [],
+                resources+: com.makeMergeable(params.resources.controller),
               }
             else
               c
