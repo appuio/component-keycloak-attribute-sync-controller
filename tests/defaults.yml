@@ -2,6 +2,12 @@
 
 parameters:
   keycloak_attribute_sync_controller:
+
+    resources:
+      controller:
+        requests:
+          cpu: 99m
+
     sync_configurations:
       example:
         credentialsSecret:

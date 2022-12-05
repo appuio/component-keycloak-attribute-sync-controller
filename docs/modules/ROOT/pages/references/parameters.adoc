@@ -28,6 +28,30 @@ controller:
 Dictionary containing the container images used by this component.
 
 
+== `resources`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+controller: {}
+----
+example::
++
+[source,yaml]
+----
+controller:
+  limits:
+    memory: 512Mi
+  requests:
+    memory: 256Mi
+----
+
+This dictionary allows overriding the default resource requests.
+
+
 == `sync_credentials`
 
 [horizontal]
