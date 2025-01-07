@@ -22,7 +22,7 @@ parameters:
       - input_paths:
           - keycloak-attribute-sync-controller/component/app.jsonnet
         input_type: jsonnet
-        output_path: apps/
+        output_path: .
       - input_paths:
           - keycloak-attribute-sync-controller/manifests/crds/${keycloak_attribute_sync_controller:manifest_version}/
         input_type: copy

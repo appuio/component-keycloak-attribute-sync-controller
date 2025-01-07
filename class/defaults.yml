@@ -1,5 +1,7 @@
 parameters:
   keycloak_attribute_sync_controller:
+    =_metadata:
+      multi_tenant: true
     namespace: syn-keycloak-attribute-sync-controller
     images:
       controller:
