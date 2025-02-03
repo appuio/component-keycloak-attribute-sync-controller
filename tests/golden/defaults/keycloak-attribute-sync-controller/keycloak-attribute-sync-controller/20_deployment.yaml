@@ -22,7 +22,7 @@ spec:
         - args: []
           command:
             - /manager
-          image: quay.io/appuio/keycloak-attribute-sync-controller:v0.1.3
+          image: quay.io/appuio/keycloak-attribute-sync-controller:v0.2.0
           livenessProbe:
             httpGet:
               path: /healthz
